@@ -1,0 +1,34 @@
+{
+	"name": "Pipelint_conditional_Split",
+	"properties": {
+		"activities": [
+			{
+				"name": "dataflow_conditional_split",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow_conditional_split",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-04-04T08:11:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

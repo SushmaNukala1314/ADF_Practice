@@ -1,0 +1,17 @@
+{
+	"name": "Second_10_records",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Second_10_Records"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

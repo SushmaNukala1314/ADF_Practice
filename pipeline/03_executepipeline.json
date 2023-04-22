@@ -1,0 +1,26 @@
+{
+	"name": "03_executepipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "02_procedure",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "till_yesterday"
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-04-02T17:22:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

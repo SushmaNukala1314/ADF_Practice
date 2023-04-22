@@ -1,0 +1,9 @@
+{
+	"name": "fashionadf",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f774062c-4dcb-4ee4-b96c-7df4d91ee489",
+		"tenantId": "5e62235d-8e31-4565-b000-86d20c56d0ab"
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"name": "05_IFF_Condition",
+	"properties": {
+		"activities": [
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@bool(startswith(pipeline().parameters.inputnameparam,'validateif'))",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "fal case",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "01_copydata_copy1",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "tru case",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "01_copydata",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"inputnameparam": {
+				"type": "string",
+				"defaultValue": "validateifcondition"
+			}
+		},
+		"folder": {
+			"name": "till_yesterday"
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-04-02T17:22:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

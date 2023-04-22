@@ -1,0 +1,62 @@
+{
+	"name": "derived_column_dataflow",
+	"properties": {
+		"folder": {
+			"name": "till_yesterday"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sales_order_Detail",
+						"type": "DatasetReference"
+					},
+					"name": "salesorderdetail"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sales_order_detail_destination",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          SalesOrderID as integer,",
+				"          SalesOrderDetailID as integer,",
+				"          OrderQty as integer,",
+				"          ProductID as integer,",
+				"          UnitPrice as decimal(19,4),",
+				"          UnitPriceDiscount as decimal(19,4),",
+				"          LineTotal as decimal(38,6),",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> salesorderdetail",
+				"salesorderdetail derive(Description = case(LineTotal>=500, 'profit', 'loss')) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

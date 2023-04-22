@@ -1,0 +1,17 @@
+{
+	"name": "04top3salaryrank",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "04_top_3_salary_rank"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

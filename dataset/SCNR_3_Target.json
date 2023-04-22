@@ -1,0 +1,40 @@
+{
+	"name": "SCNR_3_Target",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "SEQNO",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SCNR_3_TARGET"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

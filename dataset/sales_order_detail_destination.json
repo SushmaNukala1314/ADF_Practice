@@ -1,0 +1,17 @@
+{
+	"name": "sales_order_detail_destination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sales_order_detail_destination"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

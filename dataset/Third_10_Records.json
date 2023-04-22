@@ -1,0 +1,17 @@
+{
+	"name": "Third_10_Records",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Third_10_Records"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

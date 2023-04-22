@@ -1,0 +1,17 @@
+{
+	"name": "Product_categry_target2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Product_category_target2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

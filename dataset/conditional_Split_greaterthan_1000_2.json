@@ -1,0 +1,17 @@
+{
+	"name": "conditional_Split_greaterthan_1000_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "conditional_Split2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

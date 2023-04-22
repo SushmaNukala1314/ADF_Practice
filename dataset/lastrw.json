@@ -1,0 +1,17 @@
+{
+	"name": "lastrw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "lstrw"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,34 @@
+{
+	"name": "02_Last_three_records",
+	"properties": {
+		"activities": [
+			{
+				"name": "Last_3_records",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "02_Last_3_records",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-04-14T08:49:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

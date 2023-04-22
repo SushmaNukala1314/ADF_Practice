@@ -1,0 +1,17 @@
+{
+	"name": "even",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "even"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "input_table2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sno",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "country",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "input_table2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

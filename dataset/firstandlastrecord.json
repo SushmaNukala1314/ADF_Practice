@@ -1,0 +1,17 @@
+{
+	"name": "firstandlastrecord",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "first_and_last_record"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

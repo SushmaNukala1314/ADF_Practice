@@ -1,0 +1,30 @@
+{
+	"name": "columnstorows",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "col1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "col2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "col3",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "scenario1_convert_collumns_to_rows"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

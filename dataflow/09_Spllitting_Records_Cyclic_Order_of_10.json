@@ -1,0 +1,149 @@
+{
+	"name": "09_Spllitting_Records_Cyclic_Order_of_10",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sales_order_Detail",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Third_10_Records",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Second_10_records",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "First_10_records",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				}
+			],
+			"transformations": [
+				{
+					"name": "surrogateKey1"
+				},
+				{
+					"name": "split1"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "select2"
+				},
+				{
+					"name": "select3"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          SalesOrderID as integer,",
+				"          SalesOrderDetailID as integer,",
+				"          OrderQty as integer,",
+				"          ProductID as integer,",
+				"          UnitPrice as decimal(19,4),",
+				"          UnitPriceDiscount as decimal(19,4),",
+				"          LineTotal as decimal(38,6),",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source1 keyGenerate(output(NextValue as long),",
+				"     startAt: 1L,",
+				"     stepValue: 1L) ~> surrogateKey1",
+				"surrogateKey1 split(mod(NextValue, 30)>=1 && mod(NextValue, 30)<=10,",
+				"     mod(NextValue, 30)>=11 && mod(NextValue, 30)<=20,",
+				"     disjoint: false) ~> split1@(First10Records, Second10Records, Third10Records)",
+				"split1@First10Records select(mapColumn(",
+				"          SalesOrderID,",
+				"          SalesOrderDetailID,",
+				"          OrderQty,",
+				"          ProductID,",
+				"          UnitPrice,",
+				"          UnitPriceDiscount,",
+				"          LineTotal,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"split1@Second10Records select(mapColumn(",
+				"          SalesOrderID,",
+				"          SalesOrderDetailID,",
+				"          OrderQty,",
+				"          ProductID,",
+				"          UnitPrice,",
+				"          UnitPriceDiscount,",
+				"          LineTotal,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"split1@Third10Records select(mapColumn(",
+				"          SalesOrderID,",
+				"          SalesOrderDetailID,",
+				"          OrderQty,",
+				"          ProductID,",
+				"          UnitPrice,",
+				"          UnitPriceDiscount,",
+				"          LineTotal,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select3",
+				"select3 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"select2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink3"
+			]
+		}
+	}
+}

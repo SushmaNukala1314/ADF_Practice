@@ -1,0 +1,17 @@
+{
+	"name": "vowelsandconsonantscount",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "vowels_and_consonants_count"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

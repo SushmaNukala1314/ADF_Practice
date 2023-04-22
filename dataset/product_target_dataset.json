@@ -1,0 +1,23 @@
+{
+	"name": "product_target_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStoragelinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Product_destination_filtered.txt",
+				"fileSystem": "firstcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

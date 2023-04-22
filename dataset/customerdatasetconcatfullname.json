@@ -1,0 +1,24 @@
+{
+	"name": "customerdatasetconcatfullname",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStoragelinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "customer_destination_fullname_concat.txt",
+				"fileSystem": "firstcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

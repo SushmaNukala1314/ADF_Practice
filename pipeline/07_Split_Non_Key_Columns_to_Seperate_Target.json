@@ -1,0 +1,34 @@
+{
+	"name": "07_Split_Non_Key_Columns_to_Seperate_Target",
+	"properties": {
+		"activities": [
+			{
+				"name": "07_Split_Non_Key_clolumns_to_Seperate_Targets",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "07_Split_Non_Key_clolumns_to_Seperate_Targets",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-04-18T09:54:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

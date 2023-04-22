@@ -1,0 +1,30 @@
+{
+	"name": "SCNR_2_TGT2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaselinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "Phone",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SCNR_2_Target_2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

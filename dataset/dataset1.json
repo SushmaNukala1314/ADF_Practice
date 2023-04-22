@@ -1,0 +1,19 @@
+{
+	"name": "dataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStoragelinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "customers.csv.txt",
+				"fileSystem": "firstcontainer"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
